@@ -1,7 +1,7 @@
 import numpy as np
 from utils2 import get_dict, get_batches, softmax
 
-## Q2: Forward Propagation (15 pts)
+#Forward Propagation
 def forward_prop(x, W1, W2, b1, b2):
     '''
     Inputs:
@@ -10,9 +10,6 @@ def forward_prop(x, W1, W2, b1, b2):
      Outputs:
         z:  output score vector
     '''
-
-    ### START CODE HERE (Replace instances of 'None' with your own code) ###
-
     # Calculate h
     h = np.dot(W1, x) + b1
 
@@ -22,12 +19,10 @@ def forward_prop(x, W1, W2, b1, b2):
     # Calculate z
     z = np.dot(W2, h) + b2
 
-    ### END CODE HERE ###
-
     return z, h
 
 
-## Q4: Back Propagation (25 pts)
+#Back Propagation
 def back_prop(x, yhat, y, h, W1, W2, b1, b2, batch_size):
     '''
     Inputs:
@@ -40,8 +35,6 @@ def back_prop(x, yhat, y, h, W1, W2, b1, b2, batch_size):
      Outputs:
         grad_W1, grad_W2, grad_b1, grad_b2:  gradients of matrices and biases
     '''
-    ### START CODE HERE (Replace instanes of 'None' with your code) ###
-
     # Compute l1 as W2^T (Yhat - Y)
     # Re-use it whenever you see W2^T (Yhat - Y) used to compute a gradient
     l1 = np.dot(W2.T, (yhat - y)) 
@@ -55,18 +48,13 @@ def back_prop(x, yhat, y, h, W1, W2, b1, b2, batch_size):
     grad_b1 = np.sum(l1, axis=1, keepdims=True) / batch_size
     # Compute the gradient of b2
     grad_b2 = np.sum((yhat - y), axis=1, keepdims=True) / batch_size
-    ### END CODE HERE ###
-
     return grad_W1, grad_W2, grad_b1, grad_b2
-
-
-################################################################################
 
 
 def forward_prop_test():
     from training_util import initialize_model
     # Test the function
-    print("\n## Q2: Forward Propagation (15 pts)")
+    print("\nForward Propagation")
 
     # Create some inputs
     tmp_N = 5
