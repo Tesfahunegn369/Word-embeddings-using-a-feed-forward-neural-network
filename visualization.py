@@ -19,7 +19,7 @@ def visualization(W1, W2, word2Ind):
 
     for i, word in enumerate(words):
         ax.text(result[i, 0], result[i, 1], result[i, 2], word)
-
+        
     ax.set_xlabel('X axis')
     ax.set_ylabel('Y axis')
     ax.set_zlabel('Z axis')
