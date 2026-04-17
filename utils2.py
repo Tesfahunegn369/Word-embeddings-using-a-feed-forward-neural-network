@@ -7,8 +7,6 @@ def sigmoid(z):
     # sigmoid function
     return 1.0/(1.0+np.exp(-z))
 
-
-## Q1: Softmax (10 pts)
 def softmax(z):
     '''
     Inputs:
@@ -16,23 +14,16 @@ def softmax(z):
     Outputs:
         yhat: prediction (estimate of y)
     '''
-
-    ### START CODE HERE (Replace instances of 'None' with your own code) ###
-
     # Calculate yhat (softmax)
     e_z = np.exp(z - np.max(z, axis=0, keepdims=True))
     yhat = e_z / np.sum(e_z, axis=0, keepdims=True)
-    ### END CODE HERE ###
-
     return yhat
-
 
 def get_idx(words, word2Ind):
     idx = []
     for word in words:
         idx = idx + [word2Ind[word]]
     return idx
-
 
 def pack_idx_with_frequency(context_words, word2Ind):
     freq_dict = defaultdict(int)
@@ -137,11 +128,9 @@ def get_dict(data):
     return word2Ind, Ind2word
 
 
-###############################################################################
-
 def softmax_test():
     # Test the function
-    print("\n## Q1: Softmax (10 pts)")
+    print("\nSoftmax")
 
     # 4 instances with probabilities on 3 classes
     tmp = np.array([[1, 2, 3, 4],
