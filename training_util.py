@@ -11,7 +11,6 @@ def initialize_model(N, V, random_seed=1):
      Outputs:
         W1, W2, b1, b2: initialized weights and biases
     '''
-
     np.random.seed(random_seed)
 
     # W1 has shape (N,V)
@@ -26,7 +25,7 @@ def initialize_model(N, V, random_seed=1):
     return W1, W2, b1, b2
 
 
-## Q3: Cost Function: Cross-entropy loss (20 pts)
+#Cost Function: Cross-entropy loss
 def compute_cost(y, yhat, batch_size):
     '''
     Inputs:
@@ -36,25 +35,16 @@ def compute_cost(y, yhat, batch_size):
      Outputs:
         cost:  average of cross-entropy loss for instances in the batch
     '''
-
-    ### START CODE HERE (Replace instances of 'None' with your own code) ###
-
     logprobs = np.sum(y * np.log(yhat), axis=0)
 
     # cost: -avg. logprobs
     cost = -np.sum(logprobs) / batch_size
-
-    ### END CODE HERE ###
-
     cost = np.squeeze(cost)
     return cost
 
-
-################################################################################
-
 def cost_func_test(data):
     # Test the function
-    print("\n## Q3: Cost Function: Cross-entropy loss (20 pts)")
+    print("\nCost Function: Cross-entropy loss")
 
     tmp_C = 3
     tmp_N = 50
