@@ -3,7 +3,7 @@ from utils2 import get_dict, get_batches, softmax
 from model import forward_prop, back_prop
 
 
-## Q5: Gradient Descent (30 pts)
+#Gradient Descent
 def gradient_descent(data, word2Ind, N, V, C, num_iters, alpha=0.03):
     '''
     This is the gradient_descent function
@@ -26,7 +26,6 @@ def gradient_descent(data, word2Ind, N, V, C, num_iters, alpha=0.03):
     iters = 0
 
     for x, y in get_batches(data, word2Ind, V, C, batch_size):
-        ### START CODE HERE (Replace instances of 'None' with your own code) ###
         # Get z and h
         z, h = forward_prop(x, W1, W2, b1, b2)
         # Get yhat
@@ -44,8 +43,6 @@ def gradient_descent(data, word2Ind, N, V, C, num_iters, alpha=0.03):
         b1 -= alpha * grad_b1
         b2 -= alpha * grad_b2
 
-        ### END CODE HERE ###
-
         iters += 1
         if iters == num_iters:
             break
@@ -54,13 +51,9 @@ def gradient_descent(data, word2Ind, N, V, C, num_iters, alpha=0.03):
 
     return W1, W2, b1, b2
 
-
-################################################################################
-
-
 def gradient_descent_test(data):
     # test your function
-    print("\n## Q5: Gradient Descent (30 pts)")
+    print("\nGradient Descent")
 
     C = 2
     N = 50
